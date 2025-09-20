@@ -140,14 +140,41 @@ header {
 }
 .hero__blocks {
   display: flex;
-  flex-direction: column;
-  gap: 16px; /* ← gap между внутренними блоками */
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 24px;
 }
 
 .hero__block {
   background: rgba(255, 255, 255, 0.15);
-  padding: 16px;
+  padding: 4px;
   border-radius: 8px;
   backdrop-filter: blur(4px);
+  height: 38px;
+  text-align: center;
 }
 
+.hero__block_active {
+    @extend .hero__block;
+    border: 2px solid #8A53FF;
+    background-color: #8A53FF;
+    padding: 10px;
+    border-radius: 4px;
+}
+
+.watch_block {
+  @extend .hero__block;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.watch__button {
+ display: block; 
+ background-image: url("./../images/Group\ 678.png");
+ background-size: cover;
+ width: 36px;
+ height: 36px;
+}
