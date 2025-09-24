@@ -8,11 +8,13 @@ header {
 }
 
 .header-spacer {
-    flex-grow: 119;
+    /* flex-grow: 119; */
 }
 
 .header-content {
-    flex-grow: 1202;
+    /* flex-grow: 1202; */
+    width: 83.5%;
+    margin-left: 8.5%;
     display: flex;
     justify-content: space-between;
 }
@@ -26,16 +28,20 @@ header {
     flex-direction: column;
 }
 
-.logo {
+.header-logo1 {
+    width: 63px; 
+    height: auto;
 }
 
-.logo--primary {
+.header-logo2 {
+    width: 95px;
+    height: auto;
 }
 
 .header-nav {
     display: inline-flex;
     align-items: center;
-    gap: 24px;
+    gap: 15px;
 }
 
 .nav-list,
@@ -44,35 +50,39 @@ header {
     list-style: none;
     margin: 0;
     padding: 0;
-    gap: 16px; /* отступы между элементами */
+    gap: 16px;
 }
 
-.nav-item,
-.nav-icon {
-    /* стили для элементов меню и иконок */
+.nav-icons img{
+    cursor: pointer;
 }
-.nav-item-selected{
+
+.nav-item {
+    cursor: pointer;
+}
+
+.nav-item-selected {
     color: #8A53FF;
+    cursor: pointer;
 }
 
 .nav-divider {
     display: flex;
     flex-direction: column;
     height: 100%;
+    align-items: center;
+    justify-content: center;
 }
 
-.nav-divider__spacer {
-    flex-grow: 6;
-}
-
-.nav-divider__line {
+.nav-divider-line {
     display: block;
     background-color: black;
     width: 1px;
-    flex-grow: 8;
+    height: 14px;
+    margin: 0 auto;
 }
 
-.HeroSection{
+.hero-section {
     position: relative;
     background-position: center;
     background-image: url("./../images/HeroBackgroundImage.png");
@@ -82,8 +92,7 @@ header {
     overflow: hidden; 
 }
 
-
-.hero__overlay {
+.hero-overlay {
     position: absolute;
     top: 0;
     left: 0;
@@ -93,7 +102,7 @@ header {
     z-index: 1;
 }
 
-.hero__content {
+.hero-content {
   position: absolute;
   top: 0;
   left: 0;
@@ -109,36 +118,44 @@ header {
   z-index: 2;
 }
 
-.HeroHorizontalAlignment {
+.hero-horizontal-alignment {
     display: flex;
     width: 100%;
 }
 
-.HeroLeftSpacer {
+.hero-left-spacer {
     flex-grow: 140;
 }
 
-.HerroRightSpacer{
+.herro-right-spacer {
     flex-grow: 120;
 }
 
-.HerroContent {
-    flex-grow: 505;
+.herro-content {
+    margin-left: 19.8%;
+    width: 63%;
     display: flex;
     flex-direction: column;
 }
 
-.hero__title {
+.hero-title {
   margin: 0;
   font-size: 2.5rem;
 }
 
-.hero__subtitle {
+.hero-title-text{
+    display:inline; 
+    color: #8A53FF;
+}
+
+.hero-subtitle {
   margin: 0;
   font-size: 1.2rem;
   opacity: 0.9;
+  cursor: pointer;
 }
-.hero__blocks {
+
+.hero-blocks {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -147,7 +164,7 @@ header {
   margin-top: 24px;
 }
 
-.hero__block {
+.hero-block {
   background: rgba(255, 255, 255, 0.15);
   padding: 4px;
   border-radius: 8px;
@@ -156,25 +173,324 @@ header {
   text-align: center;
 }
 
-.hero__block_active {
-    @extend .hero__block;
+.hero-block-active {
+    @extend .hero-block;
     border: 2px solid #8A53FF;
     background-color: #8A53FF;
     padding: 10px;
     border-radius: 4px;
+    color: white;
+    cursor: pointer;
 }
 
-.watch_block {
-  @extend .hero__block;
+.watch-block {
+  @extend .hero-block;
   display: flex;
+  align-items:w center;
+  gap: 4px;
   align-items: center;
-  gap: 10px;
 }
 
-.watch__button {
+.watch-button {
  display: block; 
- background-image: url("./../images/Group\ 678.png");
+ background-image: url("./../images/PlayButton.png");
  background-size: cover;
  width: 36px;
  height: 36px;
+ cursor: pointer;
+}
+
+.feature-destination-section {
+    display: flex;
+    align-items: center;
+    padding-top: 19.38%;
+    padding-bottom: 19.38%;
+    padding-left: 9.72%;
+    padding-right: 9.72%;
+}
+
+.feature-destination-section-left-hand {
+    margin-right: 40px;
+    background-image: url("./../images/FeaturedImage.png");
+    background-size: cover;
+    /* height: 338px; */
+    width: 540px;
+    aspect-ratio: 540 / 338;
+}
+
+.feature-destination-section-right-hand {
+    padding-bottom: 40px;    
+}
+
+
+.feature-destination-header2{
+    color: #8A53FF;
+    margin-bottom: 8px;
+}
+
+.feature-destination-header1 {
+    margin-bottom: 8px;
+}
+
+.feature-destination-text {
+    margin-bottom: 8px;
+}
+
+
+.feature-destination-play-component {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.feature-destination-play-button {
+    background-image: url("./../images/PlayButton2.png");
+    background-size: cover;
+    height: 36px;
+    width: 36px;
+    cursor: pointer;
+}
+
+.feature-destination-play-text {
+    color:#8A53FF;
+    cursor: pointer;
+}
+
+.discover-world-section{
+    padding-bottom: 70px;
+    padding-top: 24px;
+}
+.discover-world-header-component {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 48px;
+}
+
+.discover-world-header2 {
+    color:#8A53FF;
+    margin-bottom: 8px;
+}
+
+
+.location-cards-row {
+    display: flex;
+    width:83.4%;
+    margin-left: 8.3%;
+    margin-right: 8.3%;
+}
+
+.discover-world-card {
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.discover-world-card img {
+    width: 89%;
+    aspect-ratio: 268 / 317;
+    margin-bottom: 10px;
+}
+
+.discover-world-card-header {
+    margin-bottom: 4px;
+}
+
+.discover-world-card-link {
+    color:#8A53FF;
+    cursor: pointer;
+}
+
+.share-your-travel-section {
+    background-image: url(../images/ShareYourTravelFromBackgorund.png);
+    background-size: cover;
+    width: 100vw;
+    aspect-ratio: 1440 / 911;
+}
+
+.share-your-travel-form-header-component {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.share-your-travel-form-header2{
+    color:#8A53FF;
+    margin-bottom: 8px;
+}
+
+.share-your-travel-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    gap: 30px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.share-your-travel-form-content {
+    width: 617px;
+    padding-top: 28px;
+    padding-bottom: 28px;
+    padding-left: 30px;
+    padding-right: 30px;
+    background-color: white;
+    border-radius: 12px;
+}
+
+.share-your-travel-form-content-header{
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+.share-your-travel-form-content-text {
+    color: #576075;
+    margin-bottom: 17px;
+}
+
+.share-your-travel-form-content-body {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.share-your-travel-form-content input {
+  border: 1px solid #bdbdbd;
+  padding: 7px;
+  border-radius: 8px;
+  outline: none; /* ← если вы его убрали, нужно компенсировать визуально */
+  transition: border-color 0.2s, box-shadow 0.2s; /* плавность */
+}
+
+.share-your-travel-form-content input:focus {
+  border-color: #1976d2; /* или любой акцентный цвет */
+  box-shadow: 0 0 0 2px rgba(25, 118, 210, 0.2); /* мягкая подсветка */
+}
+
+.share-your-travel-form-content button {
+    display: inline-block;
+    width: auto;           
+    background-color: #8A53FF;
+    border: 2px solid white;
+    padding: 8px 16px;
+    box-sizing: border-box;
+    align-self: flex-start;
+    border-radius: 10px;
+    color: white;
+    cursor: pointer;
+}
+
+.recent-stories-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 83px;
+    padding-bottom: 83px;
+    padding-left: 120px;
+    padding-right: 120px;
+    gap: 30px;
+}
+
+.recent-stories-section-header {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.recent-stories-section-header2 {
+    color: #8A53FF;
+    width: 10;
+}
+
+.recent-stories-block {
+    display: flex;
+    height: 100%;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: nowrap;
+}
+
+.recent-stories-big-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-grow: 1;
+    width: 50%;
+    gap: 14px;
+}
+
+.recent-stories-big-card img{
+    size: cover;
+    width: 90%;
+    aspect-ratio: 560 / 358
+}
+
+
+.recent-stories-big-card-content {
+    display: flex;
+    flex-direction: row;
+    padding-right: 10%;
+    justify-content: center;
+    align-items: center;
+}
+
+.recent-stories-big-card-content img {
+    width: 48px;
+    height: 48px;
+    cursor: pointer;
+}
+
+.recent-stories-big-card-content-text {
+    display: flex;
+    flex-direction: column;
+    padding-left: 8%;
+    gap: 10px;
+}
+
+.recent-stories-list {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    flex-wrap: nowrap;
+    align-self: flex-start;
+    gap: 26px;
+    width: 50%;
+    padding: 50px;
+}
+
+.recent-stories-card {
+    display: flex;
+    gap: 20px;
+}
+
+.recent-stories-card img {
+    width: 32%;
+    aspect-ratio:  200 / 128;
+}
+
+.footer-section {
+    display: flex;
+    padding-left: 8%;
+    padding-right: 8%;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    color: #576075;
+}
+
+.footer-info {
+    flex-grow: 1;
+}
+
+.footer-links {
+    display: flex;
+    gap: 40px
+}
+.footer-links a {
+    cursor: pointer;
 }

@@ -26,9 +26,6 @@ header {
     flex-direction: column;
 }
 
-.logo {
-}
-
 .logo--primary {
 }
 
@@ -44,13 +41,9 @@ header {
     list-style: none;
     margin: 0;
     padding: 0;
-    gap: 16px; /* отступы между элементами */
+    gap: 16px;
 }
 
-.nav-item,
-.nav-icon {
-    /* стили для элементов меню и иконок */
-}
 .nav-item-selected{
     color: #8A53FF;
 }
@@ -72,7 +65,7 @@ header {
     flex-grow: 8;
 }
 
-.HeroSection{
+.hero-section{
     position: relative;
     background-position: center;
     background-image: url("./../images/HeroBackgroundImage.png");
@@ -83,7 +76,7 @@ header {
 }
 
 
-.hero__overlay {
+.hero-overlay {
     position: absolute;
     top: 0;
     left: 0;
@@ -93,7 +86,7 @@ header {
     z-index: 1;
 }
 
-.hero__content {
+.hero-content {
   position: absolute;
   top: 0;
   left: 0;
@@ -109,36 +102,36 @@ header {
   z-index: 2;
 }
 
-.HeroHorizontalAlignment {
+.hero-horizontal-alignment {
     display: flex;
     width: 100%;
 }
 
-.HeroLeftSpacer {
+.hero-left-spacer {
     flex-grow: 140;
 }
 
-.HerroRightSpacer{
+.herro-right-spacer{
     flex-grow: 120;
 }
 
-.HerroContent {
+.herro-content {
     flex-grow: 505;
     display: flex;
     flex-direction: column;
 }
 
-.hero__title {
+.hero-title {
   margin: 0;
   font-size: 2.5rem;
 }
 
-.hero__subtitle {
+.hero-subtitle {
   margin: 0;
   font-size: 1.2rem;
   opacity: 0.9;
 }
-.hero__blocks {
+.hero-blocks {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -147,7 +140,7 @@ header {
   margin-top: 24px;
 }
 
-.hero__block {
+.hero-block {
   background: rgba(255, 255, 255, 0.15);
   padding: 4px;
   border-radius: 8px;
@@ -156,22 +149,22 @@ header {
   text-align: center;
 }
 
-.hero__block_active {
-    @extend .hero__block;
+.hero-block-active {
+    @extend .hero-block;
     border: 2px solid #8A53FF;
     background-color: #8A53FF;
     padding: 10px;
     border-radius: 4px;
 }
 
-.watch_block {
-  @extend .hero__block;
+.watch-block {
+  @extend .hero-block;
   display: flex;
   align-items: center;
   gap: 10px;
 }
 
-.watch__button {
+.watch-button {
  display: block; 
  background-image: url("./../images/Group\ 678.png");
  background-size: cover;
