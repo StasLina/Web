@@ -1,0 +1,170 @@
+.blog-article {
+    padding-left: 18%;
+    padding-right: 18%;
+}
+
+.article-hero-section {}
+
+.article-hero-section-top {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.article-hero-section-header {
+    flex-grow: 1;
+}
+
+.article-hero-section-header h2 {
+    color: #8A53FF;
+    padding: 0px;
+    margin: 0px;
+}
+
+.article-hero-section-header h1 {
+    color: black;
+    padding: 0px;
+    margin: 0px;
+}
+
+.article-hero-section-author {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.article-hero-section-author img {
+    width: 35px;
+    height: 35px;
+}
+
+.article-hero-section-author div {
+    display: flex;
+    flex-direction: column;
+}
+
+.article-hero-section-author-name {}
+
+.article-hero-section-author-title {}
+
+.article-hero-section-1 {
+    position: relative;
+    background-position: center;
+    background-image: url("./../images/ArticleHeroImage.jpg");
+    background-size: cover;
+    aspect-ratio: 911 / 540;
+    overflow: hidden;
+}
+
+.article-hero-section-text {
+    position: absolute;
+    top: 30%;
+    width: 100%;
+    font-size: 50px;
+}
+
+.article-hero-section-text div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.article-hero-section-play-button {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}
+
+.article-hero-section-play-button div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.article-hero-section-play-button div div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.article-hero-section-play-button div div div {
+    background-image: url("./../images/PlayButton2.png");
+    background-size: cover;
+    width: 104px;
+    height: 104px;
+    cursor: pointer;
+}
+
+.clincher-paragraph {
+    margin-bottom: 35px;
+}
+
+.callout-section {
+    display: flex;
+    width: 100%;
+    margin: 35px;
+}
+
+.callout-section-left,
+.callout-section-right {
+    flex: 1;
+    position: relative;
+    gap: 10px;
+}
+
+.callout-section-left {
+    display: flex;
+}
+
+.callout-section-left-left {
+    flex: 1;
+    background: url("../images/SwissWinterPopup.jpg") center/cover no-repeat;
+}
+
+.callout-section-left-right {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    gap: 10px;
+}
+
+.callout-section-left-right img {
+    flex: 1;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.callout-section-right {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    gap: 30px;
+    align-items: start;
+    justify-content: center;
+}
+
+.callout-section-right-citat {
+    display: flex;
+    font-size: 40px;
+}
+
+.callout-section-right-citat img {
+    width: 35px;
+    height: 26px;
+}
+
+.callout-section-right button {
+    display: inline;
+    align-self: flex-start;
+    background-color: #8A53FF;
+    color: white;
+    border: 0px solid white;
+    border-radius: 4px;
+    padding: 13px;
+}

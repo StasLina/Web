@@ -1,0 +1,78 @@
+.share-your-travel-section {
+    background-image: url(../images/ShareYourTravelFromBackgorund.png);
+    background-size: cover;
+    width: 100vw;
+    aspect-ratio: 1440 / 911;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    gap: 30px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.share-your-travel-form-header-component {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.share-your-travel-form-header2{
+    color:#8A53FF;
+    margin-bottom: 8px;
+}
+
+.share-your-travel-form-content {
+    width: 617px;
+    padding-top: 28px;
+    padding-bottom: 28px;
+    padding-left: 30px;
+    padding-right: 30px;
+    background-color: white;
+    border-radius: 12px;
+}
+
+.share-your-travel-form-content-header{
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+.share-your-travel-form-content-text {
+    color: #576075;
+    margin-bottom: 17px;
+}
+
+.share-your-travel-form-content-body {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.share-your-travel-form-content input {
+  border: 1px solid #bdbdbd;
+  padding: 7px;
+  border-radius: 8px;
+  outline: none; /* ← если вы его убрали, нужно компенсировать визуально */
+  transition: border-color 0.2s, box-shadow 0.2s; /* плавность */
+}
+
+.share-your-travel-form-content input:focus {
+  border-color: #1976d2; /* или любой акцентный цвет */
+  box-shadow: 0 0 0 2px rgba(25, 118, 210, 0.2); /* мягкая подсветка */
+}
+
+.share-your-travel-form-content button {
+    display: inline-block;
+    width: auto;           
+    background-color: #8A53FF;
+    border: 2px solid white;
+    padding: 8px 16px;
+    box-sizing: border-box;
+    align-self: flex-start;
+    border-radius: 10px;
+    color: white;
+    cursor: pointer;
+}

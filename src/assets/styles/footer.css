@@ -1,0 +1,20 @@
+.footer-section {
+    display: flex;
+    padding-left: 8%;
+    padding-right: 8%;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    color: #576075;
+}
+
+.footer-info {
+    flex-grow: 1;
+}
+
+.footer-links {
+    display: flex;
+    gap: 40px
+}
+.footer-links a {
+    cursor: pointer;
+}
