@@ -133,7 +133,6 @@
     margin-right: 40px;
     background-image: url("./../images/FeaturedImage.png");
     background-size: cover;
-    /* height: 338px; */
     width: 540px;
     aspect-ratio: 540 / 338;
 }
@@ -252,7 +251,6 @@
 }
 
 .recent-stories-section-header h1 {
-    /* font-family: 'Roboto' */
     font-weight: 50;
 }
 

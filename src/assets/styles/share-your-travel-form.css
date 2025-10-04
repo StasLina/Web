@@ -55,13 +55,13 @@
   border: 1px solid #bdbdbd;
   padding: 7px;
   border-radius: 8px;
-  outline: none; /* ← если вы его убрали, нужно компенсировать визуально */
-  transition: border-color 0.2s, box-shadow 0.2s; /* плавность */
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s; 
 }
 
 .share-your-travel-form-content input:focus {
-  border-color: #1976d2; /* или любой акцентный цвет */
-  box-shadow: 0 0 0 2px rgba(25, 118, 210, 0.2); /* мягкая подсветка */
+  border-color: #1976d2;
+  box-shadow: 0 0 0 2px rgba(25, 118, 210, 0.2);
 }
 
 .share-your-travel-form-content button {
