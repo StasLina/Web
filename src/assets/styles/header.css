@@ -73,6 +73,7 @@ header {
     margin-left: 8.5%;
     display: flex;
     justify-content: space-between;
+    font-size: 13px;
 }
 
 .site-header {
