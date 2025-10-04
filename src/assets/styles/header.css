@@ -1,5 +1,61 @@
+@font-face {
+  font-family: 'Roboto';
+  src: url('../fonts/Roboto/Roboto-VariableFont_wdth\,wght.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'ChangaOne';
+  src: url('../fonts/Changa_One/ChangaOne-Regular.ttf') format('truetype');
+  font-weight: 100;
+  font-style: normal;
+}
+
+h1 {
+    font-family: 'ChangaOne';
+    display: block;
+    font-size: 2em;
+    margin-block-start: 0;
+    margin-block-end: 0;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: 100;
+    unicode-bidi: isolate;
+}
+
+h2 {
+    font-family: 'Roboto';
+    display: block;
+    font-size: 1.5em;
+    margin-block-start: 0.83em;
+    margin-block-end: 0.83em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+    unicode-bidi: isolate;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+h3 {
+    font-family: 'ChangaOne';
+    display: block;
+    font-size: 1.17em;
+    margin-block-start: 0;
+    margin-block-end: 0;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: 100;
+    unicode-bidi: isolate;
+}
+
 body {
     margin: 0px;
+    box-sizing: border-box;
+    font-family: "Roboto";
+    font-weight: 100;
+    font-size: 18px;
 }
 
 header {

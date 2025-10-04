@@ -5,7 +5,7 @@
     background-size: cover;
     width: 100vw;
     aspect-ratio: 1440 / 580;
-    overflow: hidden; 
+    overflow: hidden;
 }
 
 .hero-overlay {
@@ -19,19 +19,19 @@
 }
 
 .hero-content {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 50%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  text-align: center;
-  padding: 0 0px;
-  color: rgb(0, 0, 0);
-  z-index: 2;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    text-align: center;
+    padding: 0 0px;
+    color: rgb(0, 0, 0);
+    z-index: 2;
 }
 
 .hero-horizontal-alignment {
@@ -55,38 +55,41 @@
 }
 
 .hero-title {
-  margin: 0;
-  font-size: 2.5rem;
+    margin: 0;
+    font-size: 2.5rem;
+    font-family: 'ChangaOne';
+    font-weight: 100;
+    margin-bottom: 12px;
 }
 
-.hero-title-text{
-    display:inline; 
+.hero-title-text {
+    display: inline;
     color: #8A53FF;
 }
 
 .hero-subtitle {
-  margin: 0;
-  font-size: 1.2rem;
-  opacity: 0.9;
-  cursor: pointer;
+    margin: 0;
+    font-size: 1.0rem;
+    opacity: 0.9;
+    cursor: pointer;
 }
 
 .hero-blocks {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  gap: 16px;
-  margin-top: 24px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    margin-top: 24px;
 }
 
 .hero-block {
-  background: rgba(255, 255, 255, 0.15);
-  padding: 4px;
-  border-radius: 8px;
-  backdrop-filter: blur(4px);
-  height: 38px;
-  text-align: center;
+    background: rgba(255, 255, 255, 0.15);
+    padding: 4px;
+    border-radius: 8px;
+    backdrop-filter: blur(4px);
+    height: 38px;
+    text-align: center;
 }
 
 .hero-block-active {
@@ -97,23 +100,24 @@
     border-radius: 4px;
     color: white;
     cursor: pointer;
+    font-size: 1.0rem;
 }
 
 .watch-block {
-  @extend .hero-block;
-  display: flex;
-  align-items:w center;
-  gap: 4px;
-  align-items: center;
+    @extend .hero-block;
+    display: flex;
+    align-items: w center;
+    gap: 4px;
+    align-items: center;
 }
 
 .watch-button {
- display: block; 
- background-image: url("./../images/PlayButton.png");
- background-size: cover;
- width: 36px;
- height: 36px;
- cursor: pointer;
+    display: block;
+    background-image: url("./../images/PlayButton.png");
+    background-size: cover;
+    width: 36px;
+    height: 36px;
+    cursor: pointer;
 }
 
 .feature-destination-section {
@@ -135,18 +139,19 @@
 }
 
 .feature-destination-section-right-hand {
-    padding-bottom: 40px;    
+    padding-bottom: 40px;
 }
 
 
-.feature-destination-header2{
+.feature-destination-section-right-hand h2 {
     color: #8A53FF;
     margin-bottom: 8px;
 }
 
-.feature-destination-header1 {
+.feature-destination-section-right-hand h1 {
     margin-bottom: 8px;
 }
+
 
 .feature-destination-text {
     margin-bottom: 8px;
@@ -168,14 +173,15 @@
 }
 
 .feature-destination-play-text {
-    color:#8A53FF;
+    color: #8A53FF;
     cursor: pointer;
 }
 
-.discover-world-section{
+.discover-world-section {
     padding-bottom: 70px;
     padding-top: 24px;
 }
+
 .discover-world-header-component {
     display: flex;
     flex-direction: column;
@@ -184,15 +190,15 @@
     margin-bottom: 48px;
 }
 
-.discover-world-header2 {
-    color:#8A53FF;
+.discover-world-header-component h2 {
+    color: #8A53FF;
     margin-bottom: 8px;
 }
 
 
 .location-cards-row {
     display: flex;
-    width:83.4%;
+    width: 83.4%;
     margin-left: 8.3%;
     margin-right: 8.3%;
 }
@@ -215,7 +221,7 @@
 }
 
 .discover-world-card-link {
-    color:#8A53FF;
+    color: #8A53FF;
     cursor: pointer;
 }
 
@@ -237,9 +243,17 @@
     gap: 15px;
 }
 
-.recent-stories-section-header2 {
+
+
+.recent-stories-section-header h2 {
     color: #8A53FF;
     width: 10;
+    text-align: center;
+}
+
+.recent-stories-section-header h1 {
+    /* font-family: 'Roboto' */
+    font-weight: 50;
 }
 
 .recent-stories-block {
@@ -260,7 +274,7 @@
     gap: 14px;
 }
 
-.recent-stories-big-card img{
+.recent-stories-big-card img {
     size: cover;
     width: 90%;
     aspect-ratio: 560 / 358
@@ -306,5 +320,5 @@
 
 .recent-stories-card img {
     width: 32%;
-    aspect-ratio:  200 / 128;
+    aspect-ratio: 200 / 128;
 }

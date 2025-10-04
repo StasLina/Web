@@ -1,9 +1,13 @@
 .blog-article {
     padding-left: 18%;
     padding-right: 18%;
+    padding-top: 46px;
+    padding-bottom: 69px;
 }
 
-.article-hero-section {}
+.article-hero-section {
+    margin-bottom: 35px;
+}
 
 .article-hero-section-top {
     display: flex;
@@ -101,6 +105,10 @@
     margin-bottom: 35px;
 }
 
+.clincher-paragraph h1 {
+    margin-bottom: 15px;
+}
+
 .callout-section {
     display: flex;
     width: 100%;
@@ -167,4 +175,53 @@
     border: 0px solid white;
     border-radius: 4px;
     padding: 13px;
+}
+
+.conclusion-text {
+    margin-bottom: 15px;
+}
+
+.highlight-section {
+    margin-bottom: 35px;
+    margin-bottom: 15px;
+}
+
+.highlight-section h1 {
+    margin-bottom: 15px;
+}
+
+.highlight-section-row {
+    display: flex;
+}
+
+.highlight-card {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    flex-direction: column;
+    padding-right: 15px;
+    width: 30%;
+}
+
+.highlight-card img {
+    width: 100%;
+    object-fit: cover;
+    aspect-ratio: 280 / 346;
+    margin-bottom: 15px;
+}
+
+.highlight-card div {
+    color: #b4b4b4;
+}
+
+.disclaimer-section {
+    padding-left: 29px;
+    padding-right: 29px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    background-color: #f7f6f6;
+}
+
+.disclaimer-section h3 {
+    margin-bottom: 15px;
 }
