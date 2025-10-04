@@ -300,6 +300,10 @@
     gap: 10px;
 }
 
+.recent-stories-big-card-content-text div{
+    font-size: 13px;
+}
+
 .recent-stories-list {
     display: flex;
     flex-direction: column;
@@ -319,4 +323,8 @@
 .recent-stories-card img {
     width: 32%;
     aspect-ratio: 200 / 128;
+}
+
+.recent-stories-card div p {
+    font-size: 13px;
 }
