@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To-Do List</title>
+    <link rel="stylesheet" href="src/styles/style.css">
+</head>
+
+<body>
+    <div style="display: flex; flex-direction: column; min-height: 100vh;">
+        <div class="title">Мой список задач</div>
+
+        <div class="content">
+            <div class="task-creator-form">
+                <div class="input-fields">
+                    <input id="Title" type="text" placeholder="Задача" />
+                    <input id="Content" type="text" placeholder="Описание" />
+                </div>
+
+                <button class="button-create">Добавить</button>
+            </div>
+
+            <div class="list-view-tasks"></div>
+
+            <div class="bottom-sheet">
+                <div class="bottom-line">
+                    <div class="share-tool-bar">
+                        <div><img id="copy-btn" src="src/assets/images/copy.svg"></div>
+                        <div><img id="vk-btn" src="src/assets/images/vk.svg"></div>
+                        <div><img id="telegram-btn" src="src/assets/images/telegram.svg"></div>
+                        <div><img id="whatsap-btn" src="src/assets/images/whatsap.svg"></div>
+                        <div><img id="facebook-btn" src="src/assets/images/facebook.svg"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        @СЛайн
+    </div>
+    <script src="src/scripts/create-task.js"></script>
+</body>
+
+</html>
