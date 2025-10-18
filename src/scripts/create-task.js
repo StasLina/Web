@@ -1,26 +1,84 @@
 let expandedTask = null; 
 let bottomSheet = null;
+let bottomLine = null; 
 let copyElmBtn = null;
 let vkElmBtn = null;
 let tgElmBtn = null;
 let whatsapElmBtn = null;
 let facebookElmBtn = null;
 
- document.addEventListener('DOMContentLoaded', () => {
+let centerWidget = null;
+let deleteForm = null; 
+let deleteFormActionAccept = null;
+let deleteFormActionReject = null;
+
+let removingTaskItem = null;
+
+function resetCenterWidget() {
+    Array.from(bottomSheet.children).forEach(child => {
+    child.style.display = "none";
+    });
+
+    Array.from(centerWidget.children).forEach(child => {
+    child.style.display = "none";
+    });
+}
+
+function showDeleteForm() {
+    resetCenterWidget();
+    bottomSheet.style.display="flex";
+    centerWidget.style.display = "block";
+    deleteForm.style.display = "block";
+}
+
+function deleteTask(item) {
+    console.log("delete task")
+    removingTaskItem = item;
+    showDeleteForm()
+}
+
+function handleAcceptRemoveTaskClick() {
+    if (removingTaskItem) {
+        removingTaskItem.remove();
+    }
+    removingTaskItem = null;
+    resetCenterWidget();
+    bottomSheet.style.display="none";
+}
+
+function handleRejectRemoveTaskClick() {
+
+    removingTaskItem = null;
+    resetCenterWidget();
+    bottomSheet.style.display="none";
+}
+
+document.addEventListener('DOMContentLoaded', () => {
     const titleInput = document.getElementById('Title');
     const contentInput = document.getElementById('Content');
     const addButton = document.querySelector('.button-create');
     const taskList = document.querySelector('.list-view-tasks');
       
-    bottomSheet = document.getElementsByClassName("bottom-sheet");
-    copyElmBtn = document.getElementsById("copy-btn");
-    vkElmBtn = document.getElementsById("vk-btn");
-    telegramElmBtn = document.getElementsById("telegram-btn");
-    whatsapElmBtn = document.getElementsById("whatsap-btn");
-    facebookElmBtn = document.getElementsById("facebook-btn");
+    bottomSheet = document.querySelector(".bottom-sheet");
+    copyElmBtn = document.getElementById("copy-btn");
+    vkElmBtn = document.getElementById("vk-btn");
+    telegramElmBtn = document.getElementById("telegram-btn");
+    whatsapElmBtn = document.getElementById("whatsap-btn");
+    facebookElmBtn = document.getElementById("facebook-btn");
+    bottomLine = document.querySelector(".bottom-line")
+    deleteFormActionAccept = document.getElementById("delete-form-action-accept")
+    deleteFormActionReject = document.getElementById("delete-form-action-reject")
+    centerWidget = document.querySelector(".center-widget");
+    deleteForm = document.querySelector(".delete-form");
 
+    deleteFormActionAccept.addEventListener('click', handleAcceptRemoveTaskClick)
+    deleteFormActionReject.addEventListener('click', handleRejectRemoveTaskClick)
 
-      function addTask() {
+    resetCenterWidget();
+    bottomSheet.style.display="None";
+    
+
+    function addTask() {
         const title = titleInput.value.trim();
         const content = contentInput.value.trim();
 
@@ -47,13 +105,11 @@ let facebookElmBtn = null;
         const deleteButton = document.createElement('button');
         deleteButton.classList.add('task-delete-button');
 
-
         taskInfo.appendChild(taskTitle);
         taskInfo.appendChild(taskContent);
         taskInfo.appendChild(deleteButton)
         
         taskItem.appendChild(taskInfo)
-
         taskList.prepend(taskItem);
 
         titleInput.value = '';
@@ -62,6 +118,10 @@ let facebookElmBtn = null;
 
         taskItem.addEventListener('click', () =>{
             expandTask(taskItem);
+        });
+
+        deleteButton.addEventListener('click', () =>{
+            deleteTask(taskItem)
         });
       }
 
