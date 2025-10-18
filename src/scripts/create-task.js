@@ -31,6 +31,12 @@ const TASK_STATE = {
 
 let currentTaskState = TASK_STATE.NONE;
 
+// --- Новая функция для генерации уникального ID ---
+function generateId() {
+    return Date.now().toString(36) + Math.random().toString(36).substr(2, 5);
+}
+// -----------------------------------------------
+
 function getCurrentTaskState() {
     return currentTaskState;
 }
@@ -128,7 +134,13 @@ function hideBottomSheet() {
 }
 function handleAcceptRemoveTaskClick() {
     if (choosenTaskItem) {
+        // --- Удаляем задачу из localStorage ---
+        const taskId = choosenTaskItem.dataset.taskId;
+        if (taskId) {
+            removeFromLocalStorage(taskId);
+        }
         choosenTaskItem.remove();
+        choosenTaskItem = null; // Сбрасываем ссылку на удаленную задачу
     }
     setCurrentTaskState(TASK_STATE.NONE);
     resetCenterWidget();
@@ -164,6 +176,12 @@ function handleEditFormSave() {
 
         if (titleElement) titleElement.textContent = newTitle;
         if (contentElement) contentElement.textContent = newContent || '—';
+
+        // --- Сохраняем обновленную задачу в localStorage ---
+        const taskId = choosenTaskItem.dataset.taskId;
+        if (taskId) {
+            updateTaskInLocalStorage(taskId, newTitle, newContent);
+        }
     }
     setCurrentTaskState(TASK_STATE.NONE);
     resetCenterWidget();
@@ -180,7 +198,7 @@ function handleCopy() {
         const textToCopy = `${title}\n${content}`;
         navigator.clipboard.writeText(textToCopy).then(() => {
             console.log('Текст скопирован в буфер обмена');
-             // Сбрасываем состояние и скрываем панель после копирования
+             // Сбрасываем состояние и скрывает панель после копирования
             setCurrentTaskState(TASK_STATE.NONE);
             hideBottomSheet();
         }).catch(err => {
@@ -222,6 +240,53 @@ function handleFacebook() {
     return;
 }
 
+// --- Функции для работы с localStorage ---
+const TASKS_STORAGE_KEY = 'todo_tasks';
+
+function loadTasksFromLocalStorage() {
+    try {
+        const tasksJson = localStorage.getItem(TASKS_STORAGE_KEY);
+        if (tasksJson) {
+            return JSON.parse(tasksJson);
+        }
+    } catch (e) {
+        console.error('Ошибка при загрузке задач из localStorage:', e);
+        return [];
+    }
+    return [];
+}
+
+function saveTasksToLocalStorage(tasks) {
+    try {
+        localStorage.setItem(TASKS_STORAGE_KEY, JSON.stringify(tasks));
+    } catch (e) {
+        console.error('Ошибка при сохранении задач в localStorage:', e);
+    }
+}
+
+function addTaskToLocalStorage(id, title, content) {
+    const tasks = loadTasksFromLocalStorage();
+    tasks.push({ id, title, content });
+    saveTasksToLocalStorage(tasks);
+}
+
+function updateTaskInLocalStorage(id, newTitle, newContent) {
+    const tasks = loadTasksFromLocalStorage();
+    const taskIndex = tasks.findIndex(task => task.id === id);
+    if (taskIndex !== -1) {
+        tasks[taskIndex].title = newTitle;
+        tasks[taskIndex].content = newContent;
+        saveTasksToLocalStorage(tasks);
+    }
+}
+
+function removeFromLocalStorage(id) {
+    const tasks = loadTasksFromLocalStorage();
+    const filteredTasks = tasks.filter(task => task.id !== id);
+    saveTasksToLocalStorage(filteredTasks);
+}
+// -----------------------------------------
+
 document.addEventListener('DOMContentLoaded', () => {
     const titleInput = document.getElementById('Title');
     const contentInput = document.getElementById('Content');
@@ -260,6 +325,13 @@ document.addEventListener('DOMContentLoaded', () => {
     resetCenterWidget();
     hideBottomSheet(); // Инициализируем скрытие bottom-sheet
 
+    // --- Загружаем задачи из localStorage при загрузке ---
+    const savedTasks = loadTasksFromLocalStorage();
+    savedTasks.forEach(taskData => {
+        renderTask(taskData.id, taskData.title, taskData.content);
+    });
+    // ----------------------------------------------------
+
 
     function addTask() {
         const title = titleInput.value.trim();
@@ -270,12 +342,33 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
+        // --- Генерируем уникальный ID для новой задачи ---
+        const taskId = generateId();
+        // ------------------------------------------------
+
+        // --- Сохраняем задачу в localStorage ---
+        addTaskToLocalStorage(taskId, title, content);
+        // ----------------------------------------
+
+        // --- Вызываем функцию для создания DOM-элемента ---
+        renderTask(taskId, title, content);
+        // --------------------------------------------------
+
+        titleInput.value = '';
+        contentInput.value = '';
+        titleInput.focus();
+    }
+
+    // --- Функция для создания DOM-элемента задачи ---
+    function renderTask(id, title, content) {
         const taskItem = document.createElement('div');
         taskItem.classList.add('task-item');
+        // --- Присваиваем ID задачи как data-атрибут ---
+        taskItem.dataset.taskId = id;
+        // ----------------------------------------------
 
         const taskInfo = document.createElement('info');
         taskInfo.classList.add('task-info');
-
 
         const taskTitle = document.createElement('div');
         taskTitle.classList.add('task-title');
@@ -295,10 +388,6 @@ document.addEventListener('DOMContentLoaded', () => {
         taskItem.appendChild(taskInfo);
         taskList.prepend(taskItem);
 
-        titleInput.value = '';
-        contentInput.value = '';
-        titleInput.focus();
-
         taskItem.addEventListener('click', (e) => {
             // Проверяем, не был ли клик по кнопке внутри задачи
             if (!e.target.classList.contains('task-delete-button') &&
@@ -313,6 +402,7 @@ document.addEventListener('DOMContentLoaded', () => {
             deleteTask(taskItem);
         });
     }
+    // -----------------------------------------------
 
     addButton.addEventListener('click', addTask);
 
@@ -387,8 +477,9 @@ function createToolbarButton(action, iconName) {
     button.setAttribute('data-action', action);
 
     const image = document.createElement('img');
+    // Убираем "url()" - это CSS-синтаксис, а не путь к файлу
     image.src = `src/assets/images/${iconName}`;
-    button.appendChild(image);
+    button.appendChild(image); // Добавляем изображение в кнопку
 
     return button;
 }

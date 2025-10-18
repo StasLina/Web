@@ -58,7 +58,6 @@ body {
 
 .center-widget {
     margin: auto;
-    /* Скрыто по умолчанию */
     display: none;
 }
 
