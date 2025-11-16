@@ -1,0 +1,29 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f5f7fa;
+    color: #333;
+    line-height: 1.6;
+    padding: 0px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 0px;
+}
+
+.main-body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.title {
+    text-align: center;
+    font-size: 2.2rem;
+    margin-bottom: 20px;
+    color: #2c3e50;
+}

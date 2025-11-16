@@ -1,0 +1,9 @@
+.list-view-tasks {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    min-height: 0;
+    height: 300px;
+    overflow-y: scroll;
+    flex-grow: 1;
+}

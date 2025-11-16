@@ -1,0 +1,46 @@
+.task-creator-form {
+    display: flex;
+    flex-direction: column;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    margin-bottom: 30px;
+    flex-shrink: 0;
+}
+
+.input-fields {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 15px;
+}
+
+.input-fields input {
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+}
+
+.input-fields input:focus {
+    outline: none;
+    border-color: #3498db;
+}
+
+.button-create {
+    background-color: #2ecc71;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-size: 1rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    align-self: flex-end;
+}
+
+.button-create:hover {
+    background-color: #27ae60;
+}
