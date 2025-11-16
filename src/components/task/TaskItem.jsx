@@ -4,12 +4,12 @@ import './TaskItem.css';
 const TASK_STATE = {
     NONE: 'none',
     DELETING: 'deleting',
-    
-    
+
+
     INFO: 'info'
 };
 
-function TaskItem({ task, onRemove, onUpdate, onShowDeleteConfirm, onShowEditForm, onShowShareBar }) {
+function TaskItem({ task, onRemove, onUpdate, onShowDeleteConfirm, onShowEditForm, onShowShareBar, onPinTask }) {
     const [currentTaskState, setCurrentTaskState] = useState(TASK_STATE.NONE);
     const [expanded, setExpanded] = useState(false);
     const itemRef = useRef(null);
@@ -26,20 +26,20 @@ function TaskItem({ task, onRemove, onUpdate, onShowDeleteConfirm, onShowEditFor
 
     const handleEditClick = (e) => {
         e.stopPropagation();
-        onShowEditForm(task.id); 
+        onShowEditForm(task.id);
     };
 
-    
-    
-    
+
+
+
 
     const handleShareClick = (e) => {
         e.stopPropagation();
-        
-        onShowShareBar(task.id); 
-        
-        
-        
+
+        onShowShareBar(task.id);
+
+
+
     };
 
     const handleInfoClick = (e) => {
@@ -49,6 +49,10 @@ function TaskItem({ task, onRemove, onUpdate, onShowDeleteConfirm, onShowEditFor
         setCurrentTaskState(TASK_STATE.NONE);
     };
 
+    const handlePinClick = (e) => {
+        e.stopPropagation();
+        onPinTask(task.id);
+    };
     return (
         <div className="task-item" ref={itemRef} onClick={handleTaskClick}>
             <div className="task-info">
@@ -66,6 +70,12 @@ function TaskItem({ task, onRemove, onUpdate, onShowDeleteConfirm, onShowEditFor
                     </button>
                     <button className="task-toolbar-item" onClick={handleEditClick}>
                         <img src="/images/edit.svg" alt="Редактировать" />
+                    </button>
+                    <button className="task-toolbar-item" onClick={handlePinClick}>
+                        <img
+                            src={task.isPinned ? "/images/unpin.svg" : "/images/pin.svg"}
+                            alt={task.isPinned ? "Открепить" : "Закрепить"}
+                        />
                     </button>
                 </div>
             )}

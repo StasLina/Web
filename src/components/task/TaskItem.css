@@ -65,3 +65,11 @@
     bottom: 0px;
     margin: auto;
 }
+
+.task-item.is-dragging {
+  background-color: #f1f8ff;
+  box-shadow: 0 4px 12px rgba(52, 152, 219, 0.25);
+  transform: rotate(0.5deg);
+  z-index: 100;
+  cursor: grabbing;
+}

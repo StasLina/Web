@@ -8,6 +8,7 @@ function MainLayout({
     tasks,
     onAddTask,
     onRemoveTask,
+    onPinTask,
     onUpdateTask,
     onShowDeleteConfirm,
     onShowEditForm, 
@@ -25,6 +26,7 @@ function MainLayout({
                 <GetTaskCreator onAddTask={onAddTask} />
                 <TaskList
                     tasks={tasks}
+                    onPinTask={onPinTask}  
                     onRemoveTask={onRemoveTask}
                     onUpdateTask={onUpdateTask}
                     onShowDeleteConfirm={onShowDeleteConfirm}
