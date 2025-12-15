@@ -1,15 +1,19 @@
 import { useState, useRef } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { taskRemoved, taskPinned } from '../../features/tasks/tasksSlice';
+import { selectPinnedIds } from '../../features/tasks/tasksSlice';
 import './TaskItem.css';
 
 const TASK_STATE = {
     NONE: 'none',
     DELETING: 'deleting',
-
-
     INFO: 'info'
 };
 
-function TaskItem({ task, onRemove, onUpdate, onShowDeleteConfirm, onShowEditForm, onShowShareBar, onPinTask }) {
+function TaskItem({ task, onShowEditForm, onShowShareBar }) {
+    const dispatch = useDispatch();
+    const pinnedIds = useSelector(selectPinnedIds);
+
     const [currentTaskState, setCurrentTaskState] = useState(TASK_STATE.NONE);
     const [expanded, setExpanded] = useState(false);
     const itemRef = useRef(null);
@@ -21,7 +25,16 @@ function TaskItem({ task, onRemove, onUpdate, onShowDeleteConfirm, onShowEditFor
 
     const handleDeleteClick = (e) => {
         e.stopPropagation();
-        onShowDeleteConfirm(task.id);
+        dispatch(taskRemoved({ id: task.id }));
+    };
+
+    const handlePinClick = (e) => {
+        e.stopPropagation();
+        if (pinnedIds.length >= 3 && !task.isPinned) {
+            alert('Можно закрепить не более 3 задач.');
+            return;
+        }
+        dispatch(taskPinned({ id: task.id }));
     };
 
     const handleEditClick = (e) => {
@@ -29,17 +42,9 @@ function TaskItem({ task, onRemove, onUpdate, onShowDeleteConfirm, onShowEditFor
         onShowEditForm(task.id);
     };
 
-
-
-
-
     const handleShareClick = (e) => {
         e.stopPropagation();
-
         onShowShareBar(task.id);
-
-
-
     };
 
     const handleInfoClick = (e) => {
@@ -49,10 +54,6 @@ function TaskItem({ task, onRemove, onUpdate, onShowDeleteConfirm, onShowEditFor
         setCurrentTaskState(TASK_STATE.NONE);
     };
 
-    const handlePinClick = (e) => {
-        e.stopPropagation();
-        onPinTask(task.id);
-    };
     return (
         <div className="task-item" ref={itemRef} onClick={handleTaskClick}>
             <div className="task-info">

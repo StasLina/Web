@@ -1,15 +1,15 @@
 import ShareToolBar from '../features/ShareToolBar';
 import './BottomSheet.css';
+import { useDispatch } from 'react-redux';
+import { taskRemoved, taskUpdated } from '../../features/tasks/tasksSlice';
 import { useState, useEffect, useRef } from 'react';
 
 function BottomSheet({
     state,
     editData,
-    onConfirmDelete,
     onHide,
-    onSaveEdit,
-
 }) {
+    const dispatch = useDispatch();
 
     const [editTitle, setEditTitle] = useState(editData.title);
     const [editContent, setEditContent] = useState(editData.content);
@@ -19,17 +19,25 @@ function BottomSheet({
             setEditTitle(editData.title);
             setEditContent(editData.content);
         } else {
-
             setEditTitle('');
             setEditContent('');
         }
     }, [editData, state.show, state.type]);
 
+    const handleSaveEdit = (taskId, newTitle, newContent) => {
+        dispatch(taskUpdated({ id: taskId, title: newTitle, content: newContent }));
+        onHide();
+    };
+
+    const handleConfirmedDelete = (taskId) => {
+        dispatch(taskRemoved({ id: taskId }));
+        onHide();
+    };
+
     const shareToolBarRef = useRef(null);
     const shouldDisplay = state.show;
 
     const handleRootClick = (e) => {
-
         if (state.type === 'share' && shareToolBarRef.current && !shareToolBarRef.current.contains(e.target)) {
             onHide();
         }
@@ -50,7 +58,7 @@ function BottomSheet({
                                 <button
                                     className="delete-form-action-bar-others-choises"
                                     id="delete-form-action-accept"
-                                    onClick={() => onConfirmDelete(state.taskId)}
+                                    onClick={() => handleConfirmedDelete(state.taskId)}
                                 >
                                     Да
                                 </button>
@@ -67,12 +75,10 @@ function BottomSheet({
                 );
             case 'edit':
                 const handleSaveClick = () => {
-
-                    onSaveEdit(state.taskId, editTitle.trim(), editContent.trim() || '—');
+                    handleSaveEdit(state.taskId, editTitle.trim(), editContent.trim() || '—');
                 };
 
                 const handleCancelClick = () => {
-
                     onHide();
                 };
 
@@ -103,10 +109,8 @@ function BottomSheet({
                     </div>
                 );
             case 'share':
-
-
                 return (
-                    <div className="bottom-line active" ref={shareToolBarRef}> {/* <-- Добавляем ref */}
+                    <div className="bottom-line active" ref={shareToolBarRef}>
                         <ShareToolBar />
                     </div>
                 );
@@ -114,8 +118,6 @@ function BottomSheet({
                 return null;
         }
     };
-
-
 
     return (
         <div className={`bottom-sheet ${shouldDisplay ? 'visible' : ''}`} onClick={handleRootClick}>

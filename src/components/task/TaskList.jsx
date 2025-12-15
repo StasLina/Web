@@ -6,9 +6,6 @@ import { selectPinnedTasks, selectUnpinnedTasks } from '../../features/tasks/tas
 import TaskItem from './TaskItem';
 
 function TaskList({
-    onRemoveTask,
-    onUpdateTask,
-    onPinTask,
     onShowDeleteConfirm,
     onShowEditForm,
     onShowShareBar,
@@ -53,9 +50,6 @@ function TaskList({
                                         >
                                             <TaskItem
                                                 task={task}
-                                                onRemove={onRemoveTask}
-                                                onUpdate={onUpdateTask}
-                                                onPinTask={onPinTask}
                                                 onShowDeleteConfirm={onShowDeleteConfirm}
                                                 onShowEditForm={onShowEditForm}
                                                 onShowShareBar={onShowShareBar}
@@ -90,9 +84,6 @@ function TaskList({
                                         >
                                             <TaskItem
                                                 task={task}
-                                                onRemove={onRemoveTask}
-                                                onUpdate={onUpdateTask}
-                                                onPinTask={onPinTask}
                                                 onShowDeleteConfirm={onShowDeleteConfirm}
                                                 onShowEditForm={onShowEditForm}
                                                 onShowShareBar={onShowShareBar}

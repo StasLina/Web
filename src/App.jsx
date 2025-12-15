@@ -5,9 +5,6 @@ import './App.css';
 import MainLayout from './components/layout/MainLayout';
 import {
   taskAdded,
-  taskRemoved,
-  taskUpdated,
-  taskPinned,
   selectAllTasks,
   selectPinnedIds,
 } from './features/tasks/tasksSlice';
@@ -17,11 +14,9 @@ function App() {
   const tasks = useSelector(selectAllTasks);
   const pinnedIds = useSelector(selectPinnedIds);
 
-  // --- ОСТАЛЬНОЕ СОСТОЯНИЕ (для BottomSheet) ОСТАЁТСЯ ЛОКАЛЬНЫМ ---
   const [activeBottomSheet, setActiveBottomSheet] = useState({ show: false, type: null, taskId: null });
   const [editData, setEditData] = useState({ title: '', content: '' });
 
-  // === ЭКШНЫ ===
   const handleAddTask = (title, content) => {
     if (!title.trim()) {
       alert('Введите название задачи');
@@ -30,21 +25,21 @@ function App() {
     dispatch(taskAdded(title, content));
   };
 
-  const handleRemoveTask = (taskId) => {
-    dispatch(taskRemoved({ id: taskId }));
-  };
+  // const handleRemoveTask = (taskId) => {
+  //   dispatch(taskRemoved({ id: taskId }));
+  // };
 
-  const handleUpdateTask = (taskId, newTitle, newContent) => {
-    dispatch(taskUpdated({ id: taskId, title: newTitle, content: newContent }));
-  };
+  // const handleUpdateTask = (taskId, newTitle, newContent) => {
+  //   dispatch(taskUpdated({ id: taskId, title: newTitle, content: newContent }));
+  // };
 
-  const handlePinTask = (taskId) => {
-    if (pinnedIds.length >= 3 && !pinnedIds.includes(taskId)) {
-      alert('Можно закрепить не более 3 задач.');
-      return;
-    }
-    dispatch(taskPinned({ id: taskId }));
-  };
+  // const handlePinTask = (taskId) => {
+  //   if (pinnedIds.length >= 3 && !pinnedIds.includes(taskId)) {
+  //     alert('Можно закрепить не более 3 задач.');
+  //     return;
+  //   }
+  //   dispatch(taskPinned({ id: taskId }));
+  // };
 
   // --- BottomSheet логика — без изменений (остаётся в App, т.к. UI-состояние) ---
   const showDeleteConfirm = (taskId) => {
@@ -68,15 +63,15 @@ function App() {
     setEditData({ title: '', content: '' });
   };
 
-  const handleConfirmedDelete = (taskId) => {
-    handleRemoveTask(taskId);
-    hideBottomSheet();
-  };
+  // const handleConfirmedDelete = (taskId) => {
+  //   // handleRemoveTask(taskId);
+  //   hideBottomSheet();
+  // };
 
-  const handleSaveEdit = (taskId, newTitle, newContent) => {
-    handleUpdateTask(taskId, newTitle, newContent);
-    hideBottomSheet();
-  };
+  // const handleSaveEdit = (taskId, newTitle, newContent) => {
+  //   handleUpdateTask(taskId, newTitle, newContent);
+  //   hideBottomSheet();
+  // };
 
   return (
     <div className="main-body">
@@ -84,17 +79,17 @@ function App() {
         tasks={tasks}
         pinnedIds={pinnedIds}
         onAddTask={handleAddTask}
-        onRemoveTask={handleRemoveTask}
-        onUpdateTask={handleUpdateTask}
-        onPinTask={handlePinTask}
+        // onRemoveTask={handleRemoveTask}
+        // onUpdateTask={handleUpdateTask}
+        // onPinTask={handlePinTask}
         onShowDeleteConfirm={showDeleteConfirm}
         onShowEditForm={showEditForm}
         onShowShareBar={showShareBar}
         activeBottomSheet={activeBottomSheet}
         editData={editData}
-        onConfirmDelete={handleConfirmedDelete}
+        // onConfirmDelete={handleConfirmedDelete}
         onHideBottomSheet={hideBottomSheet}
-        onSaveEdit={handleSaveEdit}
+        // onSaveEdit={handleSaveEdit}
       />
     </div>
   );
