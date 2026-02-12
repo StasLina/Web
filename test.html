@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Скролируемый inline список</title>
+  <style>
+    .container {
+      display: flex;
+      flex-direction: column;
+      height: 300px;
+      overflow-y: scroll;
+      border: 1px solid #ccc;
+    }
+
+    .item {
+      display: inline-block;
+      padding: 5px 10px;
+      margin: 2px;
+      background-color: #f0f0f0;
+      border: 1px solid #aaa;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <!-- Генерация 1000 элементов -->
+  <script>
+    for (let i = 1; i <= 1000; i++) {
+      document.write(`<span class="item">Item ${i}</span>`);
+    }
+  </script>
+</div>
+
+</body>
+</html>

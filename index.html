@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To-Do List</title>
+    <link rel="stylesheet" href="src/styles/style.css">
+</head>
+
+<body>
+    <div style="display: flex; flex-direction: column; min-height: 100vh;">
+        <div class="title">Мой список задач</div>
+
+        <div class="content">
+            <div class="task-creator-form">
+                <div class="input-fields">
+                    <input id="Title" type="text" placeholder="Задача" />
+                    <input id="Content" type="text" placeholder="Описание" />
+                </div>
+
+                <button class="button-create">Добавить</button>
+            </div>
+
+            
+            <div class="list-view-tasks"></div>
+
+            <div class="bottom-sheet">
+                <div class="bottom-line">
+                    <div class="share-tool-bar">
+                        <div><img id="copy-btn" src="src/assets/images/copy.svg"></div>
+                        <div><img id="vk-btn" src="src/assets/images/vk.svg"></div>
+                        <div><img id="telegram-btn" src="src/assets/images/telegram.svg"></div>
+                        <div><img id="whatsap-btn" src="src/assets/images/whatsap.svg"></div>
+                        <div><img id="facebook-btn" src="src/assets/images/facebook.svg"></div>
+                    </div>
+                    <div>
+                    </div>
+                </div>
+                <div class="center-widget">
+                    <div class="delete-form">
+                        <p>Удалить задачу?</p>
+                        <div class="delete-form-action-bar">
+                            <button class="delete-form-action-bar-others-choises" id="delete-form-action-accept">Да</button>
+                            <button class="delete-form-action-bar-first-choise" id="delete-form-action-reject">Нет</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Форма редактирования перемещена внутрь bottom-sheet -->
+                <div class="edit-task-form">
+                    <input id="EditTitle" type="text" placeholder="Задача">
+                    <input id="EditContent" type="text" placeholder="Описание">
+                    <div class="edit-task-form-action-bar">
+                        <button id="edit-task-form-cancel">Отменить</button>
+                        <button id="edit-task-form-save">Сохранить</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            @СЛайн
+        </div>
+        <script src="src/scripts/create-task.js"></script>
+</body>
+
+</html>
